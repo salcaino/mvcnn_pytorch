@@ -147,7 +147,7 @@ class ModelNetTrainer(object):
 
         print ('Total # of test models: ', all_points)
         val_mean_class_acc = np.mean((samples_class-wrong_class)/samples_class)
-        acc = all_correct_points.float() / all_points
+        acc = all_correct_points / all_points
         val_overall_acc = acc.cpu().data.numpy()
         loss = all_loss / len(self.val_loader)
 
