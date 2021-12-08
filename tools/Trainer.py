@@ -11,7 +11,7 @@ import time
 class ModelNetTrainer(object):
 
     def __init__(self, model, train_loader, val_loader, optimizer, loss_fn, \
-                 model_name, log_dir, num_views=12):
+                 model_name, log_dir, num_views=12, num_classes=1):
 
         self.optimizer = optimizer
         self.model = model
@@ -21,7 +21,7 @@ class ModelNetTrainer(object):
         self.model_name = model_name
         self.log_dir = log_dir
         self.num_views = num_views
-
+        self.num_classes=num_classes
         self.model.cuda()
         if self.log_dir is not None:
             self.writer = SummaryWriter(log_dir)
@@ -109,8 +109,8 @@ class ModelNetTrainer(object):
         # out_data = None
         # target = None
 
-        wrong_class = np.zeros(40)
-        samples_class = np.zeros(40)
+        wrong_class = np.zeros(self.num_classes)
+        samples_class = np.zeros(self.num_classes)
         all_loss = 0
 
         self.model.eval()
