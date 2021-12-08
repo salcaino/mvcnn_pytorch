@@ -21,14 +21,10 @@ def flip(x, dim):
 
 class SVCNN(Model):
 
-    def __init__(self, name, nclasses=40, pretraining=True, cnn_name='vgg11'):
+    def __init__(self, name, nclasses=1, pretraining=True, cnn_name='vgg11'):
         super(SVCNN, self).__init__(name)
 
-        self.classnames=['airplane','bathtub','bed','bench','bookshelf','bottle','bowl','car','chair',
-                         'cone','cup','curtain','desk','door','dresser','flower_pot','glass_box',
-                         'guitar','keyboard','lamp','laptop','mantel','monitor','night_stand',
-                         'person','piano','plant','radio','range_hood','sink','sofa','stairs',
-                         'stool','table','tent','toilet','tv_stand','vase','wardrobe','xbox']
+        self.classnames=['chair']
 
         self.nclasses = nclasses
         self.pretraining = pretraining
@@ -70,14 +66,10 @@ class SVCNN(Model):
 
 class MVCNN(Model):
 
-    def __init__(self, name, model, nclasses=40, cnn_name='vgg11', num_views=12):
+    def __init__(self, name, model, nclasses=1, cnn_name='vgg11', num_views=12):
         super(MVCNN, self).__init__(name)
 
-        self.classnames=['airplane','bathtub','bed','bench','bookshelf','bottle','bowl','car','chair',
-                         'cone','cup','curtain','desk','door','dresser','flower_pot','glass_box',
-                         'guitar','keyboard','lamp','laptop','mantel','monitor','night_stand',
-                         'person','piano','plant','radio','range_hood','sink','sofa','stairs',
-                         'stool','table','tent','toilet','tv_stand','vase','wardrobe','xbox']
+        self.classnames=['chair']
 
         self.nclasses = nclasses
         self.num_views = num_views
